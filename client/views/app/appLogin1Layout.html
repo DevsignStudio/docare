@@ -1,4 +1,4 @@
-<template name="docareLogin1Layout">
+<template name="appLogin1Layout">
     <div class="login1">
         <div class="login-background">
 
@@ -19,23 +19,17 @@
                                         DoCare will send one time SMS message to verify your phone number. Carrier SMS charges maybe apply.
                                     </div>
                                     <form class="" action="index.html" method="post">
-                                        <div class="input-textfield" style="margin-bottom: 10px;">
-                                            <input type="text" name="text" placeholder="Hint Text" value="Malaysia" data-textfield="Some text here">
-                                            <div class="border-line">
-
-                                            </div>
-                                        </div>
-                                        <div class="input-textfield">
-                                            <input type="text" name="text" placeholder="Hint Text" value="+60 " data-textfield="Some text here">
-                                            <div class="border-line">
-
-                                            </div>
-                                        </div>
+                                        <select name="" id="">
+                                            <option value="">Malaysia</option>
+                                            <option value="">Indonesia</option>
+                                            <option value="">Thailand</option>
+                                        </select>
+                                        <input type="text" name="text" value="+60 " placeholder="Phone Number" data-floating-field>
                                     </form>
                                 </div>
                                 <div class="cards-action">
                                     <div class="pull-right">
-                                        <a href="#" class="flat-button secondary ripple">Next</a>
+                                        <a href="/login-2" class="flat-button secondary ripple">Next</a>
                                     </div>
                                 </div>
                             </div>

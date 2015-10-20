@@ -1,21 +1,21 @@
 Router.route('/', {
     controller: 'DocareLoginController',
-    template: 'docareLogin1Layout'
+    template: 'appLogin1Layout'
 });
 
 Router.route('/login-2', {
     controller: 'DocareLoginController',
-    template: 'docareLogin2Layout'
+    template: 'appLogin2Layout'
 });
 
 Router.route('/login-3', {
     controller: 'DocareLoginController',
-    template: 'docareLogin3Layout'
+    template: 'appLogin3Layout'
 });
 
 Router.route('/login-4', {
     controller: 'DocareLoginController',
-    template: 'docareLogin4Layout'
+    template: 'appLogin4Layout'
 });
 
 Router.route('/patient/', {
