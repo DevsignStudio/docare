@@ -42,27 +42,12 @@ Router.route('/patient/my-doctor/', {
     template: 'patientMyDoctorLayout'
 });
 
-Router.route('/docare/user-activity-2', {
-    controller: 'BaseController',
-    template: 'docareUserActivity2Layout'
-});
-
-Router.route('/docare/user-doctor-profile', {
-    controller: 'BaseController',
-    template: 'docareUserDoctorProfileLayout'
-});
-
-Router.route('/docare/user-doctor-profile-2', {
-    controller: 'BaseController',
-    template: 'docareUserDoctorProfile2Layout'
-});
-
-Router.route('/docare/doctor-profile', {
+Router.route('/doctor/', {
     controller: 'DocareDoctorController',
-    template: 'docareDoctorProfileLayout'
+    template: 'doctorMyProfileLayout'
 });
 
-Router.route('/docare/patient-profile', {
+Router.route('/doctor/patient-profile', {
     controller: 'DocareDoctorController',
-    template: 'docarePatientProfileLayout'
+    template: 'doctorPatientProfileLayout'
 });
