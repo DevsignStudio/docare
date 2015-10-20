@@ -1,0 +1,70 @@
+<template name="ApplicationLayout">
+    {{> yield "navigation"}}
+
+    {{> yield "toolbar"}}
+
+    <div class="page-container">
+        {{> yield}}
+    </div>
+
+
+    <style class="dont-count">
+        {{> yield "style"}}
+    </style>
+
+</template>
+
+<template name="defaultToolbar">
+    <div class="toolbar fix-after">
+    	<div class="toolbar-background">
+    		<div class="ripple-background background-brown"></div>
+    	</div>
+    	<div class="toolbar-contain">
+    		<a href="javascript:;" data-side-navigation=".side-navigation" class="icon-button white ripple"><i class="mdi mdi-menu"></i></a>
+            <div class="toolbar-title">{{> yield "pageTitle"}}</div>
+
+    	</div>
+    </div>
+</template>
+
+<template name="defaultNavigation">
+    <div class="side-navigation dont-count front">
+        <div class="side-navigation-inner">
+            <div class="nav-content">
+                <div class="nav-profile">
+                    <div class="overlay"></div>
+                    <a href="javascript:"><img src="/img/profile.png" alt=""></a>
+                    <a href="javascript:"><div class="profile-name">Nizul Zaim</div></a>
+                    <div class="profile-email">emailaddress@devsign.my</div>
+                </div>
+                <div class="nav-menu">
+                    <a class="nav-list active" href="/"><i class="mdi mdi-home"></i> Dashboard Panel</a>
+                    <a class="nav-list submenu" href="javascript:;"><i class="mdi mdi-palette-advanced"></i> UI Components</a>
+                    <div class="nav-sublist">
+                        <!-- <a class="nav-list" href="/ui/sheet"><i class="mdi mdi-checkbox-multiple-blank"></i>Paper Shadow</a> -->
+                        <!-- <a class="nav-list" href="/ui/color"><i class="mdi mdi-palette"></i>Color Palette</a> -->
+                        <a class="nav-list" href="/ui/button"><i class="mdi mdi-crop-landscape"></i>Buttons</a>
+                        <a class="nav-list" href="/ui/icon-toggle"><i class="mdi mdi-crop-square"></i>Button: Icon Toggle</a>
+                        <a class="nav-list" href="/ui/cards"><i class="mdi mdi-window-maximize"></i>Cards</a>
+                        <a class="nav-list" href="/ui/toggles"><i class="mdi mdi-checkbox-marked"></i>Toggles</a>
+                        <a class="nav-list" href="/ui/table"><i class="mdi mdi-table-large"></i>Table</a>
+                        <a class="nav-list" href="/ui/textfield"><i class="mdi mdi-label"></i>Text Fields</a>
+                    </div>
+                    <!-- <a class="nav-list submenu" href="javascript:;"><i class="mdi mdi-palette-advanced"></i> DoCare Apps</a>
+                    <div class="nav-sublist show">
+                        <a class="nav-list" href="/docare/user-activity"><i class="mdi mdi-checkbox-multiple-blank"></i> User Activity</a>
+                        <a class="nav-list" href="/docare/user-activity-2"><i class="mdi mdi-checkbox-multiple-blank"></i> User Activity 2</a>
+                        <a class="nav-list" href="/docare/user-doctor-profile"><i class="mdi mdi-checkbox-multiple-blank"></i> User Doctor Profile</a>
+                        <a class="nav-list" href="/docare/user-doctor-profile-2"><i class="mdi mdi-checkbox-multiple-blank"></i> User Doctor Profile 2</a>
+                        <a class="nav-list" href="/docare/doctor-profile"><i class="mdi mdi-checkbox-multiple-blank"></i> Doctor Profile </a>
+                        <a class="nav-list" href="/docare/patient-profile"><i class="mdi mdi-checkbox-multiple-blank"></i> Patient Profile </a>
+                        <a class="nav-list" href="/docare/login-1"><i class="mdi mdi-checkbox-multiple-blank"></i> Login 1</a>
+                    </div> -->
+                    <div class="divider"></div>
+                    <a class="nav-list" href="/ui/textfield">Search settings</a>
+                    <a class="nav-list" href="/ui/textfield">History</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

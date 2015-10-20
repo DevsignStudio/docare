@@ -1,0 +1,74 @@
+@import "mx/base/color";
+@import "mx/base/mixins";
+
+ul.doc-color-block {
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	margin-bottom: 24px;
+	.color-list{
+		display: block;
+		height: 48px;
+		line-height: 24px;
+		padding: 12px;
+		color: $color-white;
+
+		&.color-inverse {
+color: $color-grey-900;
+		}
+	}
+}
+
+.doc-button-1 {
+	padding-top: 48px;
+	padding-bottom: 48px;
+	background: $color-grey-300;
+}
+
+.doc-button-2 {
+	padding-top: 44px;
+	padding-bottom: 44px;
+	background: $color-grey-300;
+}
+
+.doc-icon-toggle {
+	padding-top: 48px;
+	padding-bottom: 48px;
+	background: $color-grey-300;
+
+	& .icon-toggle {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.code-view {
+	background:$color-grey-200;
+	padding:8px 24px;
+	width: 100%;
+	overflow-x: auto;
+
+	pre {
+		background:inherit;
+		font-size: 12px !important;
+		margin: 0;
+		padding: 0;
+
+		code {
+			font-size: inherit !important;
+			span {
+				font-size: inherit !important;
+			}
+		}
+	}
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	ul.doc-color-block {
+		.color-list{
+			line-height: 26px;
+		}
+	}
+}

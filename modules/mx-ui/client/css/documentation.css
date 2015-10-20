@@ -1,0 +1,53 @@
+ul.doc-color-block {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 24px; }
+  ul.doc-color-block .color-list {
+    display: block;
+    height: 48px;
+    line-height: 24px;
+    padding: 12px;
+    color: #ffffff; }
+    ul.doc-color-block .color-list.color-inverse {
+      color: #212121; }
+
+.doc-button-1 {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  background: #e0e0e0; }
+
+.doc-button-2 {
+  padding-top: 44px;
+  padding-bottom: 44px;
+  background: #e0e0e0; }
+
+.doc-icon-toggle {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  background: #e0e0e0; }
+  .doc-icon-toggle .icon-toggle {
+    margin-left: auto;
+    margin-right: auto; }
+
+.code-view {
+  background: #eeeeee;
+  padding: 8px 24px;
+  width: 100%;
+  overflow-x: auto; }
+  .code-view pre {
+    background: inherit;
+    font-size: 12px !important;
+    margin: 0;
+    padding: 0; }
+    .code-view pre code {
+      font-size: inherit !important; }
+      .code-view pre code span {
+        font-size: inherit !important; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  ul.doc-color-block .color-list {
+    line-height: 26px; } }
+
+/*# sourceMappingURL=documentation.css.map */

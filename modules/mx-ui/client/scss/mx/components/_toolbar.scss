@@ -1,0 +1,119 @@
+/*
+	type of toolbar :
+
+* 	seam
+* 	above
+* 	cover
+* 	seam -> above
+*/
+
+
+.toolbar {
+	position: absolute;
+	border: 0;
+	width: 100%;
+	@include box-shadow($z1-shadow);
+	top: 0;
+	left: 0;
+	z-index: 800;
+	@include transform(translateZ(0));
+
+	.toolbar-contain {
+		height: 56px;
+		@include transform(translateZ(0));
+		& .icon-button {
+			width: 56px;
+			height: 56px;
+			padding: 16px;
+		}
+	}
+
+	.toolbar-title {
+		@include ty-title;
+		line-height: 56px;
+		color: $color-white;
+		display: inline-block;
+		width: auto;
+		float:left;
+
+		@include breakpoint("xd") {
+			line-height: 64px;
+		}
+	}
+
+	&.fix-after {
+		//position: fixed;
+		//@include transition(top 0.01s ease-in-out);
+	}
+
+	.toolbar-background {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top:0;
+		left: 0;
+		background: $theme-primary;
+		overflow: hidden;
+	}
+
+	&.seam {
+		/*default is seam*/
+	}
+
+	&.above {
+		position: fixed;
+		top: 0;
+		left: 0;
+		@include box-shadow($z1-shadow);
+		border-bottom: 0;
+		z-index: 200;
+	}
+
+	&.cover {
+		position: fixed;
+		top: 0;
+		left: 0;
+		border-bottom: 0;
+		z-index: 0;
+
+		& .toolbar-background {
+			background: transparent;
+		}
+	}
+
+
+	@include breakpoint("xd") {
+		& .toolbar-contain {
+			height: 64px;
+			& .icon-button {
+				width: 64px;
+				height: 64px;
+				padding: 20px;
+			}
+		}
+	}
+}
+
+.after-toolbar {
+	margin-top: 56px;
+	@include breakpoint("xd") {
+		margin-top: 64px;
+	}
+}
+
+.icon-button {
+	text-decoration: none;
+	color: $color-grey-900;
+	width: 48px;
+	height: 48px;
+	display: inline-block;
+	padding: 12px;
+	cursor: pointer;
+	position: relative;
+	@include transform(translateZ(0));
+	@include border-radius(50%);
+	float:left;
+	&.white {
+		color: $color-grey-200;
+	}
+}
