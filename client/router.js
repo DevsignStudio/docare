@@ -1,59 +1,45 @@
 Router.route('/', {
-    controller: 'BaseController',
-    template: 'indexLayout'
+    controller: 'DocareLoginController',
+    template: 'docareLogin1Layout'
 });
 
-Router.route('/ui/button', {
-    controller: 'BaseController',
-    template: 'uiButtonLayout'
+Router.route('/login-2', {
+    controller: 'DocareLoginController',
+    template: 'docareLogin2Layout'
 });
 
-Router.route('/ui/icon-toggle', {
-    controller: 'BaseController',
-    template: 'uiIconToggleLayout'
+Router.route('/login-3', {
+    controller: 'DocareLoginController',
+    template: 'docareLogin3Layout'
 });
 
-Router.route('/ui/color', {
-    controller: 'BaseController',
-    template: 'uiColorLayout'
+Router.route('/login-4', {
+    controller: 'DocareLoginController',
+    template: 'docareLogin4Layout'
 });
 
-Router.route('/ui/sheet', {
-    controller: 'BaseController',
-    template: 'uiSheetLayout'
+Router.route('/patient/', {
+    controller: 'PatientController',
+    template: 'patientActivityLayout'
 });
 
-Router.route('/ui/cards', {
-    controller: 'BaseController',
-    template: 'uiCardsLayout'
+Router.route('/patient/search-doctor', {
+    controller: 'PatientController',
+    template: 'patientSearchDoctorLayout',
+    yieldTemplates: {
+       'searchDoctorToolbar': {to: 'toolbar'},
+       'patientNavigation': {to: "navigation"}
+    }
 });
 
-Router.route('/ui/toggles', {
-    controller: 'BaseController',
-    template: 'uiTogglesLayout'
+Router.route('/patient/doctor/', {
+    controller: 'PatientController',
+    template: 'patientDoctorLayout'
 });
 
-Router.route('/ui/table', {
-    controller: 'BaseController',
-    template: 'uiTableLayout'
-});
-
-Router.route('/ui/textfield', {
-    controller: 'BaseController',
-    template: 'uiTextfieldLayout'
-});
-
-Router.route('/ui/select', {
-    controller: 'BaseController',
-    template: 'uiSelectLayout'
-});
-
-
-// docare Router
-
-Router.route('/docare/user-activity', {
-    controller: 'BaseController',
-    template: 'docareUserActivityLayout'
+Router.route('/patient/my-doctor/', {
+    controller: 'PatientController',
+    template: 'patientMyDoctorLayout'
 });
 
 Router.route('/docare/user-activity-2', {
@@ -79,9 +65,4 @@ Router.route('/docare/doctor-profile', {
 Router.route('/docare/patient-profile', {
     controller: 'DocareDoctorController',
     template: 'docarePatientProfileLayout'
-});
-
-Router.route('/docare/login-1', {
-    controller: 'DocareLoginController',
-    template: 'docareLogin1Layout'
 });

@@ -1,0 +1,42 @@
+<template name="patientSearchDoctorLayout">
+    <div class="paper" style="padding-top: 6px; padding-bottom: 6px;">
+        <div style="max-width: 1312px; margin: 0 auto;">
+            <div class="row center-xs">
+                <div class="col-xs-fluid-24">
+                    <style>
+                        .mdi-magnify:before {
+                            font-size: 200px;
+                        }
+
+                        .input-textfield {
+                            margin: 0;
+                        }
+
+                        .input-textfield input{
+                            color: #eee !important;
+                        }
+                    </style>
+                    <div class="font-center" style="margin-top: 40px;"><i class="mdi mdi-magnify color-grey-300"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="searchDoctorToolbar">
+    <div class="toolbar fix-after">
+    	<div class="toolbar-background">
+    		<div class="ripple-background background-brown"></div>
+    	</div>
+    	<div class="toolbar-contain">
+    		<a href="/patient/" class="icon-button white ripple"><i class="mdi mdi-arrow-left"></i></a>
+            <div class="toolbar-title">{{> yield "pageTitle"}}</div>
+            <div class="pull-left" style="width: calc(100% - 72px)">
+                <form action="/patient/doctor/" method="get">
+                    <input type="text" class="no-margin" placeholder="Search Doctor DocPin" data-textfield>
+                </form>
+            </div>
+
+    	</div>
+    </div>
+</template>
