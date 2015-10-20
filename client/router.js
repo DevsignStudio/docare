@@ -47,6 +47,11 @@ Router.route('/doctor/', {
     template: 'doctorMyProfileLayout'
 });
 
+Router.route('/doctor/my-patient/', {
+    controller: 'DocareDoctorController',
+    template: 'doctorMyPatientLayout'
+});
+
 Router.route('/doctor/patient-profile', {
     controller: 'DocareDoctorController',
     template: 'doctorPatientProfileLayout'
