@@ -23,6 +23,11 @@ Router.route('/patient/', {
     template: 'patientActivityLayout'
 });
 
+Router.route('/patient/2/', {
+    controller: 'PatientController',
+    template: 'patientActivity2Layout'
+});
+
 Router.route('/patient/search-doctor', {
     controller: 'PatientController',
     template: 'patientSearchDoctorLayout',
