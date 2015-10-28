@@ -286,6 +286,43 @@ form {
   -ms-user-select: none;
   user-select: none; }
 
+.feel-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .feel-height .feel-height-child {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
@@ -4409,6 +4446,7 @@ $raised-button-pressed-shadow: 0   6px 5px rgba(#000, 0.09), 0 7px 6px rgba(#000
 /* COMPONENTS */
 button.raised-button, a.raised-button {
   background: #f5f5f5;
+  color: #212121;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
@@ -4440,7 +4478,8 @@ button.raised-button, a.raised-button {
     pointer-events: none; }
 
 button.flat-button, a.flat-button {
-  background: transparent; }
+  background: transparent;
+  color: #212121; }
   button.flat-button:hover, button.flat-button:focus, a.flat-button:hover, a.flat-button:focus {
     background: rgba(0, 0, 0, 0.1); }
   button.flat-button.primary, a.flat-button.primary {
@@ -4455,7 +4494,42 @@ button.flat-button, a.flat-button {
     box-shadow: none;
     pointer-events: none; }
 
-button.raised-button, a.raised-button, button.flat-button, a.flat-button {
+button.color-button, a.color-button {
+  background: #212121;
+  color: #ffffff; }
+  button.color-button.primary, a.color-button.primary {
+    background: #3f51b5; }
+  button.color-button.secondary, a.color-button.secondary {
+    background: #e91e63; }
+  button.color-button.white, a.color-button.white {
+    background: #ffffff;
+    color: #212121; }
+  button.color-button:hover, button.color-button:focus, a.color-button:hover, a.color-button:focus {
+    background: #424242; }
+    button.color-button:hover.primary, button.color-button:focus.primary, a.color-button:hover.primary, a.color-button:focus.primary {
+      background: #3949ab; }
+    button.color-button:hover.secondary, button.color-button:focus.secondary, a.color-button:hover.secondary, a.color-button:focus.secondary {
+      background: #d81b60; }
+    button.color-button:hover.white, button.color-button:focus.white, a.color-button:hover.white, a.color-button:focus.white {
+      background: #fafafa;
+      color: #212121; }
+  button.color-button:disabled, button.color-button.disabled, button.color-button.disabled:focus, button.color-button.disabled:hover, a.color-button:disabled, a.color-button.disabled, a.color-button.disabled:focus, a.color-button.disabled:hover {
+    color: #eeeeee;
+    background: #757575;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    pointer-events: none; }
+    button.color-button:disabled.primary, button.color-button.disabled.primary, button.color-button.disabled:focus.primary, button.color-button.disabled:hover.primary, a.color-button:disabled.primary, a.color-button.disabled.primary, a.color-button.disabled:focus.primary, a.color-button.disabled:hover.primary {
+      background: #7986cb; }
+    button.color-button:disabled.secondary, button.color-button.disabled.secondary, button.color-button.disabled:focus.secondary, button.color-button.disabled:hover.secondary, a.color-button:disabled.secondary, a.color-button.disabled.secondary, a.color-button.disabled:focus.secondary, a.color-button.disabled:hover.secondary {
+      background: #f06292; }
+    button.color-button:disabled.white, button.color-button.disabled.white, button.color-button.disabled:focus.white, button.color-button.disabled:hover.white, a.color-button:disabled.white, a.color-button.disabled.white, a.color-button.disabled:focus.white, a.color-button.disabled:hover.white {
+      background: #f5f5f5;
+      color: #bdbdbd; }
+
+button.raised-button, a.raised-button, button.flat-button, a.flat-button,
+button.color-button, a.color-button {
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -4482,7 +4556,6 @@ button.raised-button, a.raised-button, button.flat-button, a.flat-button {
   position: relative;
   text-decoration: none;
   text-align: center;
-  color: #212121;
   margin-top: 6px;
   margin-bottom: 6px;
   -webkit-transform: translateZ(0);
@@ -4490,24 +4563,29 @@ button.raised-button, a.raised-button, button.flat-button, a.flat-button {
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
   transform: translateZ(0); }
-  button.raised-button.button-block, a.raised-button.button-block, button.flat-button.button-block, a.flat-button.button-block {
+  button.raised-button.button-block, a.raised-button.button-block, button.flat-button.button-block, a.flat-button.button-block,
+  button.color-button.button-block, a.color-button.button-block {
     width: 100%;
     max-width: 100%; }
-  button.raised-button.center, a.raised-button.center, button.flat-button.center, a.flat-button.center {
+  button.raised-button.center, a.raised-button.center, button.flat-button.center, a.flat-button.center,
+  button.color-button.center, a.color-button.center {
     margin-right: auto;
     margin-left: auto;
     float: none;
     display: table; }
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    button.raised-button, a.raised-button, button.flat-button, a.flat-button {
+    button.raised-button, a.raised-button, button.flat-button, a.flat-button,
+    button.color-button, a.color-button {
       line-height: 29px;
       padding-top: 5px;
       padding-bottom: 2px; } }
-  button.raised-button .mdi, a.raised-button .mdi, button.flat-button .mdi, a.flat-button .mdi {
+  button.raised-button .mdi, a.raised-button .mdi, button.flat-button .mdi, a.flat-button .mdi,
+  button.color-button .mdi, a.color-button .mdi {
     float: left;
     margin-right: 4px;
     opacity: 0.8; }
-    button.raised-button .mdi:before, a.raised-button .mdi:before, button.flat-button .mdi:before, a.flat-button .mdi:before {
+    button.raised-button .mdi:before, a.raised-button .mdi:before, button.flat-button .mdi:before, a.flat-button .mdi:before,
+    button.color-button .mdi:before, a.color-button .mdi:before {
       font-size: 22px; }
 
 .fab {
@@ -5330,6 +5408,37 @@ ul.list {
     -o-transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s cubic-bezier(1, 0, 0, 1);
     transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s cubic-bezier(1, 0, 0, 1); }
 
+.sheet {
+  position: fixed;
+  z-index: 850;
+  background: #3f51b5;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateY(100%) scale(0.01);
+  -moz-transform: translateY(100%) scale(0.01);
+  -ms-transform: translateY(100%) scale(0.01);
+  -o-transform: translateY(100%) scale(0.01);
+  transform: translateY(100%) scale(0.01);
+  -webkit-transform-origin: 50% 20%;
+  -moz-transform-origin: 50% 20%;
+  -ms-transform-origin: 50% 20%;
+  -o-transform-origin: 50% 20%;
+  transform-origin: 50% 20%;
+  -webkit-transition: all 0.6s cubic-bezier(0.37, 0.15, 0.32, 0.94);
+  -moz-transition: all 0.6s cubic-bezier(0.37, 0.15, 0.32, 0.94);
+  -ms-transition: all 0.6s cubic-bezier(0.37, 0.15, 0.32, 0.94);
+  -o-transition: all 0.6s cubic-bezier(0.37, 0.15, 0.32, 0.94);
+  transition: all 0.6s cubic-bezier(0.37, 0.15, 0.32, 0.94); }
+  .sheet.active {
+    -webkit-transform: translate(0) scale(1);
+    -moz-transform: translate(0) scale(1);
+    -ms-transform: translate(0) scale(1);
+    -o-transform: translate(0) scale(1);
+    transform: translate(0) scale(1); }
+
 table {
   border-spacing: 0;
   width: 100%; }
@@ -5576,6 +5685,154 @@ table {
   color: #4caf50; }
 .input-floating-field input:disabled ~ .input-placeholder {
   color: #9e9e9e; }
+
+.chat-ui {
+  background: #eeeeee;
+  padding: 16px;
+  position: relative;
+  overflow: hidden; }
+  .chat-ui .chat-ui-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 64px);
+    padding: 8px;
+    padding-bottom: 0;
+    overflow: auto; }
+  .chat-ui .chat-ui-list {
+    margin-bottom: 8px;
+    width: 100%;
+    display: table; }
+    .chat-ui .chat-ui-list .chat-ui-list-item {
+      max-width: calc(100% - 104px);
+      display: table;
+      padding: 8px 12px;
+      background: #e91e63;
+      color: #ffffff;
+      font-size: 15px;
+      line-height: 20px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background-clip: padding-box;
+      margin-left: 52px;
+      margin-bottom: 4px;
+      float: left; }
+      .chat-ui .chat-ui-list .chat-ui-list-item .datetime {
+        font-size: 12px;
+        color: #f5f5f5;
+        margin-top: 4px; }
+      .chat-ui .chat-ui-list .chat-ui-list-item:first-of-type {
+        border-top-left-radius: 0;
+        position: relative;
+        margin-left: 12px; }
+        .chat-ui .chat-ui-list .chat-ui-list-item:first-of-type:before {
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 8px 8px 0;
+          border-color: transparent #e91e63 transparent transparent;
+          content: " ";
+          position: absolute;
+          left: -8px;
+          top: 0; }
+    .chat-ui .chat-ui-list img.profile-picture {
+      width: 40px;
+      height: 40px;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      background-clip: padding-box;
+      float: left; }
+    .chat-ui .chat-ui-list.right .chat-ui-list-item {
+      background: #ffffff;
+      color: #424242;
+      font-size: 15px;
+      float: right;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background-clip: padding-box;
+      margin-left: 0;
+      margin-right: 52px; }
+      .chat-ui .chat-ui-list.right .chat-ui-list-item .datetime {
+        font-size: 12px;
+        color: #757575; }
+      .chat-ui .chat-ui-list.right .chat-ui-list-item:first-of-type {
+        border-top-right-radius: 0;
+        position: relative;
+        margin-right: 12px; }
+        .chat-ui .chat-ui-list.right .chat-ui-list-item:first-of-type:before {
+          border-width: 8px 8px 0 0;
+          border-color: #ffffff transparent transparent transparent;
+          right: -8px;
+          left: auto;
+          top: 0; }
+    .chat-ui .chat-ui-list.right img.profile-picture {
+      float: right; }
+  .chat-ui .chat-ui-bottom {
+    width: 100%;
+    background: inherit;
+    height: 64px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    padding: 8px;
+    padding-top: 0; }
+    .chat-ui .chat-ui-bottom .chat-ui-text-box {
+      width: calc(100% - 104px);
+      font-size: 15px;
+      line-height: 20px;
+      background: #ffffff;
+      color: #424242;
+      float: right;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background-clip: padding-box;
+      margin-left: 0;
+      border-top-right-radius: 0;
+      position: relative;
+      margin-right: 12px;
+      min-height: 48px;
+      max-height: 48px;
+      border: 0;
+      padding: 14px 16px;
+      resize: none;
+      display: block; }
+      .chat-ui .chat-ui-bottom .chat-ui-text-box input[type="text"] {
+        width: 100%;
+        border: 0;
+        margin: 0;
+        background: transparent;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 20px;
+        font-size: 15px !important;
+        line-height: 20px !important; }
+        @media (min-width: 768px) {
+          .chat-ui .chat-ui-bottom .chat-ui-text-box input[type="text"] {
+            font-size: 13px;
+            line-height: 24px; } }
+      .chat-ui .chat-ui-bottom .chat-ui-text-box input[type="submit"] {
+        display: none;
+        visibility: hidden; }
+      .chat-ui .chat-ui-bottom .chat-ui-text-box:before {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        content: " ";
+        position: absolute;
+        border-width: 8px 8px 0 0;
+        border-color: #ffffff transparent transparent transparent;
+        right: -8px;
+        left: auto;
+        top: 0; }
+    .chat-ui .chat-ui-bottom img.profile-picture {
+      width: 40px;
+      height: 40px;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      background-clip: padding-box;
+      float: right; }
 
 .round-button {
   width: 100%;
