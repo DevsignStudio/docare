@@ -32,9 +32,14 @@ Router.route('/patient/search-doctor', {
     controller: 'PatientController',
     template: 'patientSearchDoctorLayout',
     yieldTemplates: {
-       'searchDoctorToolbar': {to: 'toolbar'},
-       'patientNavigation': {to: "navigation"}
+        'searchDoctorToolbar': {to: 'toolbar'},
+        'patientNavigation': {to: "navigation"}
     }
+});
+
+Router.route('/patient/conversation', {
+    controller: 'PatientController',
+    template: 'patientConversationLayout',
 });
 
 Router.route('/patient/doctor/', {
@@ -65,4 +70,9 @@ Router.route('/doctor/add-requests/', {
 Router.route('/doctor/patient-profile', {
     controller: 'DocareDoctorController',
     template: 'doctorPatientProfileLayout'
+});
+
+Router.route('/doctor/conversation/:_id', {
+    controller: 'DocareDoctorController',
+    template: 'doctorConversationLayout',
 });

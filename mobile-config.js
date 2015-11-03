@@ -1,7 +1,7 @@
 App.info({
-    id: 'com.devsign.mx.materilex',
-    name: 'Materilex',
-    description: 'The Materilex template',
+    id: 'com.devsign.mx.docare',
+    name: 'DoCare',
+    description: 'Doctor & Patient App',
     author: 'Devsign Studio',
     email: 'skynightz93@gmail.com',
     website: 'devsign.my',
