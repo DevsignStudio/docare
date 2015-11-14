@@ -11,24 +11,25 @@
                 <div style="max-width: 1312px; margin: 0 auto;">
                     <div class="row center-xs">
                         <div class="col-xs-fluid-24">
-                            <img src="/img/logo.png" alt="" style="margin-bottom: 24px; max-width: 30%; width: 30%"/>
-                            <div class="cards">
-                                <div class="cards-text">
+                            <img src="/img/logo.png" alt="" style="margin-bottom: 24px; max-width: 30%; width: 30%" />
+                            <form id="loginForm3" method="post">
+                                <div class="cards">
+                                    <div class="cards-text">
+                                        <div class="font-title font-center font-light color-grey-700">
+                                            Please provide your name and an optional profile photo
+                                        </div>
 
-                                    <div class="font-title font-center font-light color-grey-700">
-                                        Please provide your name and an optional profile photo
-                                    </div>
-                                    <form class="" action="index.html" method="post">
                                         <img id="imageGet" src="/img/profile.png" style="width: 100px; border-radius:50%; margin-bottom: 40px;" alt="" />
-                                        <input type="text" name="text" value="" placeholder="Profile Name" data-floating-field>
-                                    </form>
-                                </div>
-                                <div class="cards-action">
-                                    <div class="pull-right">
-                                        <a href="/login-4" class="flat-button secondary ripple">Next</a>
+                                        <input type="text" name="name" value="{{name}}" placeholder="Profile Name" data-floating-field>
+
+                                    </div>
+                                    <div class="cards-action">
+                                        <div class="pull-right">
+                                            <button type="submit" class="flat-button secondary ripple">Next</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
