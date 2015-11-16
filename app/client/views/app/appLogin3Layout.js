@@ -50,7 +50,9 @@ Meteor.startup(function() {
                     image: data
                 }, function(e, d) {
                     var thumbs = Imgur.toThumbnail(d.link, Imgur.BIG_SQUARE);
-                    $("#imageGet").attr("src", thumbs);
+                    convertToDataURLviaCanvas(thumbs, function(base64Img) {
+                        $("#imageGet").attr("src", base64Img);
+                    });
                 });
             });
         },
@@ -60,6 +62,7 @@ Meteor.startup(function() {
             var username = Session.get("phoneNumber");
 
             if (Session.get("existsID")) {
+                // Next Here: Update Name and Image if Account already exists
                 Meteor.loginWithPassword(username, "abc123");
             } else {
                 convertToDataURLviaCanvas($("#imageGet").attr("src"), function(base64Img) {
@@ -69,7 +72,7 @@ Meteor.startup(function() {
                         "profile": {
                             "name": name,
                             "image": base64Img,
-                            "type": 1,
+                            "accountType": null,
                             "createdAt": new Date(),
                             "updatedAt": new Date(),
                             "loginAt": null,
@@ -80,6 +83,8 @@ Meteor.startup(function() {
                     Meteor.loginWithPassword(username, "abc123");
                 });
             }
+
+            Router.go("/login-4");
         }
     });
 });
