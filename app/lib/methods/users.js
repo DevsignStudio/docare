@@ -6,11 +6,12 @@ Meteor.methods({
         var userExistsId = Meteor.users.findOne({"username": username});
         if (userExistsId !== undefined) {
             Meteor.users.update({_id: userExistsId._id}, {$set:data});
+            Meteor.users.update({_id: userExistsId._id}, {$set:{
+                "profile.updatedAt" : new Date()
+            }});
             return true;
         }
-
         return false;
-
     },
     usernameExists: function(username) {
         var userExistsId = Meteor.users.findOne({"username": username});

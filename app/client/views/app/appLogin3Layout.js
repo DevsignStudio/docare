@@ -65,10 +65,8 @@ Meteor.startup(function() {
                 // Next Here: Update Name and Image if Account already exists
                 convertToDataURLviaCanvas($("#imageGet").attr("src"), function(base64Img) {
                     var user = {
-                        "profile": {
-                            "name": name,
-                            "image": base64Img
-                        }
+                        "profile.name": name,
+                        "profile.image": base64Img
                     };
                     Meteor.call("updateUser",username, user);
                     Meteor.loginWithPassword(username, "abc123");

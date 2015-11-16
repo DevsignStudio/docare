@@ -18,14 +18,23 @@
                                     <div class="font-title font-center font-light color-grey-700">
                                         Please choose either patient or doctor account
                                     </div>
+                                    <style>
+                                    .img-choose {
+                                        border: 2px solid #E0E0E0;
+                                    }
+
+                                    .img-choose.active {
+                                        border: 2px solid #7986CB;
+                                    }
+                                    </style>
                                     <form class="" action="index.html" method="post">
-                                        <div class="row center-xs" style="margin-bottom: 40px;">
+                                        <div class="row center-xs" id="chooseImg" style="margin-bottom: 40px;">
                                             <div class="col-xs-fluid-9">
-                                                <img src="/img/profile.png" style="display: block; width: 80px; border-radius:50%;" alt="" />
+                                                <img src="/img/profile.png" style="display: block; width: 80px; border-radius:50%;" class="img-choose patient active" alt="" />
                                                 <div class="font-body font-center color-grey-700">Patient</div>
                                             </div>
                                             <div class="col-xs-fluid-9">
-                                                <img src="/img/profile.png" style="display: block; width: 80px; border-radius:50%;" alt="" />
+                                                <img src="/img/profile.png" style="display: block; width: 80px; border-radius:50%;" class="img-choose doctor" alt="" />
                                                 <div class="font-body font-center color-grey-700" >Doctor</div>
                                             </div>
                                         </div>
@@ -36,7 +45,7 @@
                                 </div>
                                 <div class="cards-action">
                                     <div class="pull-right">
-                                        <a href="/patient/" class="flat-button secondary ripple">Finish</a>
+                                        <a href="/patient/" id="finish4" class="flat-button secondary ripple">Finish</a>
                                     </div>
                                 </div>
                             </div>
