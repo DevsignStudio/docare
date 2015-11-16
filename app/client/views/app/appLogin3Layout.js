@@ -63,7 +63,16 @@ Meteor.startup(function() {
 
             if (Session.get("existsID")) {
                 // Next Here: Update Name and Image if Account already exists
-                Meteor.loginWithPassword(username, "abc123");
+                convertToDataURLviaCanvas($("#imageGet").attr("src"), function(base64Img) {
+                    var user = {
+                        "profile": {
+                            "name": name,
+                            "image": base64Img
+                        }
+                    };
+                    Meteor.call("updateUser",username, user);
+                    Meteor.loginWithPassword(username, "abc123");
+                });
             } else {
                 convertToDataURLviaCanvas($("#imageGet").attr("src"), function(base64Img) {
                     var user = {

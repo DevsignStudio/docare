@@ -2,10 +2,19 @@ Meteor.methods({
     addUser: function(data) {
         Accounts.createUser(data);
     },
+    updateUser: function(username,data) {
+        var userExistsId = Meteor.users.findOne({"username": username});
+        if (userExistsId !== undefined) {
+            Meteor.users.update({_id: userExistsId._id}, {$set:data});
+            return true;
+        }
+
+        return false;
+
+    },
     usernameExists: function(username) {
         var userExistsId = Meteor.users.findOne({"username": username});
         if (userExistsId !== undefined) {
-            console.log(userExistsId._id);
             return userExistsId._id;
         }
 
