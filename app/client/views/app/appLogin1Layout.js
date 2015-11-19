@@ -1,17 +1,5 @@
 
 Meteor.startup(function(){
-    Template.appLogin1Layout.helpers({
-        create: function(){
-
-        },
-        rendered: function(){
-
-        },
-        destroyed: function(){
-
-        },
-    });
-
     Template.appLogin1Layout.events({
         "submit #loginForm1" : function(event) {
             event.preventDefault();

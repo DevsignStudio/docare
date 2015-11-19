@@ -1,14 +1,5 @@
 Meteor.startup(function() {
     Template.appLogin3Layout.helpers({
-        create: function() {
-
-        },
-        rendered: function() {
-
-        },
-        destroyed: function() {
-
-        },
         name: function() {
             var id = Session.get("existsID");
             if (id !== undefined) {
@@ -69,7 +60,9 @@ Meteor.startup(function() {
                         "profile.image": base64Img
                     };
                     Meteor.call("updateUser",username, user);
-                    Meteor.loginWithPassword(username, "abc123");
+                    Meteor.loginWithPassword(username, "abc123", function() {
+                        Router.go("/login-4");
+                    });
                 });
             } else {
                 convertToDataURLviaCanvas($("#imageGet").attr("src"), function(base64Img) {
@@ -82,16 +75,14 @@ Meteor.startup(function() {
                             "accountType": null,
                             "createdAt": new Date(),
                             "updatedAt": new Date(),
-                            "loginAt": null,
                         }
                     };
-                    console.log(base64Img);
                     Meteor.call("addUser", user);
-                    Meteor.loginWithPassword(username, "abc123");
+                    Meteor.loginWithPassword(username, "abc123", function() {
+                        Router.go("/login-4");
+                    });
                 });
             }
-
-            Router.go("/login-4");
         }
     });
 });

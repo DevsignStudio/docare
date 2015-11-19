@@ -15,7 +15,17 @@ Router.route('/login-3', {
 
 Router.route('/login-4', {
     controller: 'DocareLoginController',
-    template: 'appLogin4Layout'
+    template: 'appLogin4Layout',
+    onAfterAction: function() {
+        if (Meteor.user() !== null) {
+            Session.set("selectedImg", 1);
+            if (Meteor.user().profile.accountType === 1) {
+                Router.go("/patient/");
+            } else if (Meteor.user().profile.accountType === 2) {
+                Router.go("/doctor/");
+            }
+        }
+    }
 });
 
 Router.route('/patient/', {

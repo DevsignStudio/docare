@@ -1,14 +1,5 @@
 Meteor.startup(function() {
     Template.appLogin2Layout.helpers({
-        create: function() {
-
-        },
-        rendered: function() {
-
-        },
-        destroyed: function() {
-
-        },
         phoneNumber: function() {
             return Session.get("phoneNumber");
         }
