@@ -4,9 +4,9 @@
             <div class="nav-content">
                 <div class="nav-profile">
                     <div class="overlay"></div>
-                    <a href="javascript:"><img src="/img/profile.png" alt=""></a>
-                    <a href="javascript:"><div class="profile-name">Dr. Lili Madiha</div></a>
-                    <div class="profile-email">+6012-925 2858</div>
+                    <a href="javascript:"><img src="{{loginUser.profile.image}}" alt=""></a>
+                    <a href="javascript:"><div class="profile-name">{{loginUser.profile.name}}</div></a>
+                    <div class="profile-email">{{loginUser.username}}</div>
                 </div>
                 <div class="nav-menu">
                     <a class="nav-list active" href="/doctor/"><i class="mdi mdi-home"></i> My Profile</a>

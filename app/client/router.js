@@ -19,10 +19,11 @@ Router.route('/login-4', {
     onAfterAction: function() {
         if (Meteor.user() !== null) {
             Session.set("selectedImg", 1);
+            console.log(history.lenth);
             if (Meteor.user().profile.accountType === 1) {
-                Router.go("/patient/");
+                Router.go("/patient/", {replaceState: true});
             } else if (Meteor.user().profile.accountType === 2) {
-                Router.go("/doctor/");
+                Router.go("/doctor/", {replaceState: true});
             }
         }
     }

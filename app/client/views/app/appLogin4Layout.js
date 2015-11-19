@@ -19,9 +19,9 @@ Meteor.startup(function(){
             Meteor.call("updateUser",username, user);
 
             if (Session.get("selectedImg") === 1) {
-                Router.go("/patient/");
+                Router.go("/patient/", {}, {replaceState: true});
             } else if (Session.get("selectedImg") === 2) {
-                Router.go("/doctor/");
+                Router.go("/doctor/", {}, {replaceState: true});
             }
 
         }

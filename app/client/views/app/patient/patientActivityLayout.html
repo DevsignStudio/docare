@@ -9,17 +9,37 @@
                             <img src="/img/back1.png" class="cards-profile-image-header-background" alt="" />
                         </div>
                         <div class="cards-profile-content">
-                            <img src="/img/profile.png" class="cards-profile-content-account" alt="" />
-                            <div class="font-subhead no-margin">Nizul Zaim</div>
+                            <img src="{{loginUser.profile.image}}" class="cards-profile-content-account" alt="" />
+                            <div class="font-subhead no-margin">{{loginUser.profile.name}}</div>
                             <div class="font-body no-margin color-grey-700">Patient Account</div>
                         </div>
                     </div>
-                    <div style="text-align: center; width: 100%; max-width: 70%; margin: 0 auto;">
-                        <div class="font-body color-grey-600">
-                            You still don't have any doctor to track your activity. Meet your doctor to get his account pin number.
+                    {{#if loginUser.hasDoctor}}
+                        <div class="cards">
+                            <div class="cards-text">
+                                <div class="font-subhead no-margin color-grey-900">
+                                    10 Oct 2015 Session
+                                </div>
+                                <div class="font-body color-grey-600">
+                                    Dr. Lili Madiha
+                                </div>
+                                <div class="font-body color-grey-700">
+                                    Nizul Zaim, your next session with me will be on 9.00 AM, 10 October on Saturday. Please inform me if any change that you want to make.
+                                </div>
+                            </div>
+                            <div class="cards-action">
+                                <a href="#" class="flat-button primary ripple">Re-Schedule</a>
+                            </div>
                         </div>
-                        <a href="/patient/search-doctor/" class="secondary raised-button ripple center"><i class="mdi mdi-plus"></i> Add Doctor</a>
-                    </div>
+                    {{else}}
+                        <div style="text-align: center; width: 100%; max-width: 70%; margin: 0 auto;">
+                            <div class="font-body color-grey-600">
+                                You still don't have any doctor to track your activity. Meet your doctor to get his account pin number.
+                            </div>
+                            <a href="/patient/search-doctor/" class="secondary raised-button ripple center"><i class="mdi mdi-plus"></i> Add Doctor</a>
+                        </div>
+                    {{/if}}
+
                 </div>
             </div>
         </div>

@@ -7,6 +7,15 @@ Meteor.startup(function(){
 
             Session.set("phoneNumber", phoneNumber);
             Router.go("/login-2");
+        },
+
+    });
+
+    document.addEventListener("backbutton", function() {
+        if (history.state && history.state.initial === true) {
+            navigator.app.exitApp();
+        } else {
+            history.go(-1);
         }
     });
 });
