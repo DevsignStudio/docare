@@ -21,9 +21,13 @@ Meteor.startup(function(){
             if (Session.get("selectedImg") === 1) {
                 Router.go("/patient/", {}, {replaceState: true});
             } else if (Session.get("selectedImg") === 2) {
+                Meteor.call("makeDocpin", function(err,data) {
+                    Meteor.call("updateUser",username, {
+                        "doctor.docpin": data,
+                    });
+                });
                 Router.go("/doctor/", {}, {replaceState: true});
             }
-
         }
     });
 });

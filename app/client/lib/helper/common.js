@@ -14,7 +14,7 @@ UI.registerHelper("userIsLogin", function(){
 UI.registerHelper("loginUser", function(){
     if (Meteor.user() !== null) {
         user = Meteor.user();
-        if (user.patient === undefined) {
+        if (typeof user.patient === "undefined") {
             user.hasDoctor = false;
         } else {
             user.hasDoctor = true;

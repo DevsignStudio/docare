@@ -32,8 +32,8 @@
     		<a href="/patient/" class="icon-button white ripple"><i class="mdi mdi-arrow-left"></i></a>
             <div class="toolbar-title">{{> yield "pageTitle"}}</div>
             <div class="pull-left" style="width: calc(100% - 72px)">
-                <form action="/patient/doctor/" method="get">
-                    <input type="text" class="no-margin" placeholder="Search Doctor DocPin" data-textfield>
+                <form action="/patient/doctor/" id="searchDocpin" method="get">
+                    <input type="text" name="docpin" class="no-margin" placeholder="Search Doctor DocPin" data-textfield>
                 </form>
             </div>
 
