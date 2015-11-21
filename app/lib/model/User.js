@@ -1,1 +1,0 @@
-User = Meteor.users.find();
