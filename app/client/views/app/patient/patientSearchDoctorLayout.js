@@ -5,7 +5,7 @@ Meteor.startup(function(){
             var docpin = event.target.docpin.value;
             Meteor.call("doctorFromDocpin", docpin, function(err,data) {
                 if (data !== false) {
-                    console.log(data);
+                    Router.go("/profile/" + data);
                 }
             });
         }

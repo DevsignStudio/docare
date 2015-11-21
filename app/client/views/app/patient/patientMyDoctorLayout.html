@@ -44,3 +44,15 @@
         <i class="mdi mdi-message-text"></i>
     </a>
 </template>
+
+<template name="patientBackToActivityToolbar">
+    <div class="toolbar fix-after">
+    	<div class="toolbar-background">
+    		<div class="ripple-background background-brown"></div>
+    	</div>
+    	<div class="toolbar-contain">
+    		<a href="/patient/" class="icon-button white ripple"><i class="mdi mdi-arrow-left"></i></a>
+            <div class="toolbar-title">{{> yield "pageTitle"}}</div>
+    	</div>
+    </div>
+</template>

@@ -4,7 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-iron:router
 accounts-ui
 accounts-password
 aldeed:collection2
@@ -34,3 +33,4 @@ ecwyne:nexmo-sms
 crosswalk
 mdg:camera
 simple:imgur
+iron:router

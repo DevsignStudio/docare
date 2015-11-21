@@ -1,28 +1,31 @@
 Router.route('/', {
-    controller: 'DocareLoginController',
+    controller: 'LoginController',
     template: 'appLogin1Layout'
 });
 
 Router.route('/login-2', {
-    controller: 'DocareLoginController',
+    controller: 'LoginController',
     template: 'appLogin2Layout'
 });
 
 Router.route('/login-3', {
-    controller: 'DocareLoginController',
+    controller: 'LoginController',
     template: 'appLogin3Layout'
 });
 
 Router.route('/login-4', {
-    controller: 'DocareLoginController',
+    controller: 'LoginController',
     template: 'appLogin4Layout',
     onAfterAction: function() {
+        console.log(Meteor.user());
         if (Meteor.user() !== null) {
             Session.set("selectedImg", 1);
-            if (Meteor.user().profile.accountType === 1) {
-                Router.go("/patient/", {replaceState: true});
-            } else if (Meteor.user().profile.accountType === 2) {
-                Router.go("/doctor/", {replaceState: true});
+            if (typeof Meteor.user().profile !== "undefined") {
+                if (Meteor.user().profile.accountType === 1) {
+                    Router.go("/patient/", {replaceState: true});
+                } else if (Meteor.user().profile.accountType === 2) {
+                    Router.go("/doctor/", {replaceState: true});
+                }
             }
         }
     }
@@ -52,9 +55,36 @@ Router.route('/patient/conversation', {
     template: 'patientConversationLayout',
 });
 
-Router.route('/patient/doctor/', {
-    controller: 'PatientController',
-    template: 'patientDoctorLayout'
+
+Router.route('/profile/:_id', {
+    controller: "PatientController",
+    template: 'patientDoctorLayout',
+    yieldTemplates: {
+        'patientBackToActivityToolbar': {to: 'toolbar'},
+        'patientNavigation': {to: "navigation"}
+    },
+    data: function() {
+        return Meteor.users.findOne({_id: this.params._id});
+    },
+    onBeforeAction: function() {
+        if (Meteor.user().profile.accountType === 1) {
+            patient = Meteor.user().patient;
+            if (typeof patient === "undefined") {
+                this.next();
+            } else {
+                if (patient.doctorID === this.params._id) {
+                    this.next();
+                } else {
+                    Router.go("/patient");
+                }
+            }
+
+        } else {
+            this.render("defaultToolbar", {to: 'toolbar'});
+            this.render("patientNavigation", {to: "navigation"});
+            this.render("patientMyDoctorLayout");
+        }
+    }
 });
 
 Router.route('/patient/my-doctor/', {
@@ -63,26 +93,26 @@ Router.route('/patient/my-doctor/', {
 });
 
 Router.route('/doctor/', {
-    controller: 'DocareDoctorController',
+    controller: 'DoctorController',
     template: 'doctorMyProfileLayout'
 });
 
 Router.route('/doctor/my-patient/', {
-    controller: 'DocareDoctorController',
+    controller: 'DoctorController',
     template: 'doctorMyPatientLayout'
 });
 
 Router.route('/doctor/add-requests/', {
-    controller: 'DocareDoctorController',
+    controller: 'DoctorController',
     template: 'doctorAddRequestsLayout'
 });
 
 Router.route('/doctor/patient-profile', {
-    controller: 'DocareDoctorController',
+    controller: 'DoctorController',
     template: 'doctorPatientProfileLayout'
 });
 
 Router.route('/doctor/conversation/:_id', {
-    controller: 'DocareDoctorController',
+    controller: 'DoctorController',
     template: 'doctorConversationLayout',
 });

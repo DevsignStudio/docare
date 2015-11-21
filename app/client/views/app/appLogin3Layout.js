@@ -61,6 +61,7 @@ Meteor.startup(function() {
                     };
                     Meteor.call("updateUser",username, user);
                     Meteor.loginWithPassword(username, "abc123", function() {
+
                         Router.go("/login-4");
                     });
                 });
@@ -79,6 +80,7 @@ Meteor.startup(function() {
                     };
                     Meteor.call("addUser", user);
                     Meteor.loginWithPassword(username, "abc123", function() {
+
                         Router.go("/login-4");
                     });
                 });

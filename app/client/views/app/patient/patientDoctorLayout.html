@@ -1,5 +1,5 @@
 <template name="patientDoctorLayout">
-    {{#contentFor "pageTitle"}}Doctor Profile{{/contentFor}}
+    {{#contentFor "pageTitle"}}Search Result{{/contentFor}}
     <div class="paper" style="padding-top: 6px; padding-bottom: 6px;">
         <div style="max-width: 1312px; margin: 0 auto;">
             <div class="row center-xs">
@@ -14,7 +14,7 @@
 
                         </div>
                         <div class="cards-profile-content">
-                            <div class="font-subhead">Dr. Lili Madiha <i class="mdi mdi-checkbox-marked-circle account-verify"></i></div>
+                            <div class="font-subhead">{{profile.name}}<i class="mdi mdi-checkbox-marked-circle account-verify"></i></div>
                             <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Doctor Account</div>
                             <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Prince Court Medical Centre</div>
                             <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Kuala Lumpur, Malaysia</div>
