@@ -33,7 +33,15 @@ Router.route('/login-4', {
 
 Router.route('/patient/', {
     controller: 'PatientController',
-    template: 'patientActivityLayout'
+    template: 'patientActivityLayout',
+});
+
+Router.route('/patient/my-details', {
+    controller: 'PatientController',
+    template: 'patientAddDetailsLayout',
+    yieldTemplates: {
+        'myDetailsToolbar': {to: 'toolbar'}
+    }
 });
 
 Router.route('/patient/2/', {

@@ -1,0 +1,39 @@
+<template name="patientAddDetailsLayout">
+    {{#contentFor "pageTitle"}}Add First Records{{/contentFor}}
+    <div class="paper" style="padding-top: 6px; padding-bottom: 6px;">
+        <div style="max-width: 1312px; margin: 0 auto;">
+            <div class="row center-xs">
+                <div class="col-xs-fluid-24">
+                    <form id="firstData" action="index.html" method="post">
+                        <div class="cards" style="margin-top: 8px;">
+                            <div class="cards-text">
+                                <div class="font-body color-grey-700">We are recording your first data for doctor later use it. All of data will keep private to you and also only for your connected doctor.</div>
+                                <input type="text" name="weight" placeholder="Weight (Kg)" data-floating-field>
+                                <input type="text" name="height" placeholder="Height (Cm)" data-floating-field>
+                                <input type="text" name="birthday" class="input-datepicker" placeholder="Your birthday" data-floating-field>
+                            </div>
+                            <div class="cards-action">
+                                <div class="pull-right">
+                                    <button type="reset" class="flat-button secondary ripple">Reset</button>
+                                    <button type="submit" class="color-button secondary ripple">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name="myDetailsToolbar">
+    <div class="toolbar fix-after">
+    	<div class="toolbar-background">
+    		<div class="ripple-background background-brown"></div>
+    	</div>
+    	<div class="toolbar-contain">
+            <div class="toolbar-title" style="padding-left: 16px;">{{> yield "pageTitle"}}</div>
+    	</div>
+    </div>
+</template>
