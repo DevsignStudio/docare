@@ -74,13 +74,13 @@ Router.route('/profile/:_id', {
     data: function() {
         return Meteor.users.findOne({_id: this.params._id});
     },
-    onBeforeAction: function() {
+    onAfterAction: function() {
         if (Meteor.user().profile.accountType === 1) {
-            patient = Meteor.user().patient;
-            if (typeof patient === "undefined") {
+            if (typeof Meteor.user().patient === "undefined") {
                 this.next();
             } else {
-                if (patient.doctorID === this.params._id) {
+                if (Meteor.user().patient.doctorID === this.params._id) {
+                    this.render("defaultToolbar", {to: 'toolbar'});
                     this.next();
                 } else {
                     Router.go("/patient");
@@ -118,6 +118,11 @@ Router.route('/doctor/add-requests/', {
 Router.route('/doctor/patient-profile', {
     controller: 'DoctorController',
     template: 'doctorPatientProfileLayout'
+});
+
+Router.route('/doctor/conversation/', {
+    controller: 'DoctorController',
+    template: 'doctorConversationListLayout',
 });
 
 Router.route('/doctor/conversation/:_id', {
