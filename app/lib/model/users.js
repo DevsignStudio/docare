@@ -9,6 +9,7 @@ Meteor.users.helpers({
         return "Hello World";
     },
     hasDoctor: function() {
+        return true;
         if (typeof this.patient === "undefined") {
             return false;
         } else {

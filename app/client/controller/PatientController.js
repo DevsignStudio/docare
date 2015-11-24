@@ -11,7 +11,9 @@ PatientController = BaseController.extend({
         // if (Router.current().route.path() !== "/patient/my-details") {
         //     Router.go("/patient/my-details/");
         // }
-        this.next();
-
+        this.subscribe('users').wait();
+        if (this.ready()) {
+            this.next();
+        }
     }
 });

@@ -74,7 +74,7 @@ Router.route('/profile/:_id', {
     data: function() {
         return Meteor.users.findOne({_id: this.params._id});
     },
-    onAfterAction: function() {
+    onBeforeAction: function() {
         if (Meteor.user().profile.accountType === 1) {
             if (typeof Meteor.user().patient === "undefined") {
                 this.next();
@@ -100,6 +100,11 @@ Router.route('/patient/my-doctor/', {
     template: 'patientMyDoctorLayout'
 });
 
+Router.route('/patient/set-session/', {
+    controller: 'PatientController',
+    template: 'patientSetSessionLayout'
+});
+
 Router.route('/doctor/', {
     controller: 'DoctorController',
     template: 'doctorMyProfileLayout'
@@ -115,6 +120,11 @@ Router.route('/doctor/add-requests/', {
     template: 'doctorAddRequestsLayout'
 });
 
+Router.route('/doctor/session-requests/', {
+    controller: 'DoctorController',
+    template: 'doctorSessionRequestsListLayout'
+});
+
 Router.route('/doctor/patient-profile', {
     controller: 'DoctorController',
     template: 'doctorPatientProfileLayout'
@@ -128,4 +138,9 @@ Router.route('/doctor/conversation/', {
 Router.route('/doctor/conversation/:_id', {
     controller: 'DoctorController',
     template: 'doctorConversationLayout',
+});
+
+Router.route('/doctor/reschedule-session', {
+    controller: 'DoctorController',
+    template: 'doctorRescheduleSessionLayout'
 });

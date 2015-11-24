@@ -4,8 +4,8 @@
             <div class="nav-content">
                 <div class="nav-profile">
                     <div class="overlay"></div>
-                    <a href="javascript:"><img src="{{loginUser.profile.image}}" alt=""></a>
-                    <a href="javascript:"><div class="profile-name">{{loginUser.profile.name}}</div></a>
+                    <a href="javascript:;"><img src="{{loginUser.profile.image}}" alt=""></a>
+                    <a href="javascript:;"><div class="profile-name">{{loginUser.profile.name}}</div></a>
                     <div class="profile-email">{{loginUser.username}}</div>
                 </div>
                 <div class="nav-menu">
@@ -14,6 +14,7 @@
                     {{#if loginUser.hasDoctor}}
                         <a class="nav-list" href="/patient/my-doctor/"><i class="mdi mdi-stethoscope"></i> My Doctor</a>
                         <a class="nav-list" href="/patient/conversation/"><i class="mdi mdi-message-text"></i> Conversation</a>
+                        <a class="nav-list" href="/patient/set-session/"><i class="mdi mdi-calendar"></i> Set Session</a>
                     {{else}}
                         <a class="nav-list" href="/patient/search-doctor"><i class="mdi mdi-magnify"></i> Search Doctor</a>
                     {{/if}}

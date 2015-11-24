@@ -1,5 +1,5 @@
 Mx.doAfterRouterLoad(function() {
-    $('.progress-bar.determinate').each(function() {
+    $('.progress-bar').each(function() {
         if (!$(this).isMeteorOnce('mx-progress-bar')) {
             $(this).mxProgress();
         }
