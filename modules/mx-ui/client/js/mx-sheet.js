@@ -41,6 +41,7 @@ $.fn.mxSheet = function(args) {
 
 
 $.fn.mxCalendarSheet = function() {
+
     var num = 1;
 
     for (count = 1; ; count++) {
@@ -51,17 +52,20 @@ $.fn.mxCalendarSheet = function() {
         }
     }
 
+    if ($("#calendar-"+num).length !== 0) {
+        $("#calendar-"+num).remove();
+    }
+
     $target = $('<div class="sheet" id="calendar-'+ num +'"></div>');
     $targetInner = $('<div class="sheet-inner" id="calendar-inner-'+ num +'"></div>');
-
     $("body").append($target);
-    $target = $("body").children("#calendar-1");
+    $target = $("body").children("#calendar-"+num);
+
+    if ($("#calendar-inner-"+num).length !== 0) {
+        $("#calendar-inner-"+num).remove();
+    }
+
     $target.append($targetInner);
-
-    $(this).mxSheet({
-        target: '#calendar-'+ num,
-    });
-
     $(this).Zebra_DatePicker({
         always_visible: $('#calendar-inner-'+ num),
         show_select_today: false,
@@ -69,8 +73,14 @@ $.fn.mxCalendarSheet = function() {
 
     $('.dp_daypicker, .dp_footer').bind('click', function() {
         // $('.sheet').removeClass('active');
-        history.back()
+        history.back();
         // $('.zbc').removeClass('active');
     });
+
+    $(this).mxSheet({
+        target: '#calendar-'+ num,
+    });
+
+
 
 };

@@ -8,12 +8,20 @@ PatientController = BaseController.extend({
         }
     },
     onBeforeAction: function() {
-        // if (Router.current().route.path() !== "/patient/my-details") {
-        //     Router.go("/patient/my-details/");
-        // }
         this.subscribe('users').wait();
-        if (this.ready()) {
-            this.next();
+
+        if (typeof Meteor.user() !== "undefined") {
+            if (!Meteor.user().hasPatientData()) {
+                if (Router.current().route.path() !== "/patient/my-details") {
+                    Router.go("/patient/my-details/");
+                }
+            }
+            if (this.ready()) {
+                this.next();
+            }
+
         }
+
+
     }
 });

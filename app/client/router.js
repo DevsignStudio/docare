@@ -75,22 +75,28 @@ Router.route('/profile/:_id', {
         return Meteor.users.findOne({_id: this.params._id});
     },
     onBeforeAction: function() {
-        if (Meteor.user().profile.accountType === 1) {
-            if (typeof Meteor.user().patient === "undefined") {
-                this.next();
-            } else {
-                if (Meteor.user().patient.doctorID === this.params._id) {
-                    this.render("defaultToolbar", {to: 'toolbar'});
+        this.subscribe('users').wait();
+
+        if (typeof Meteor.user() !== "undefined") {
+            this.state.set('profileId', this.params._id);
+            if (Meteor.user().profile.accountType === 1) {
+                if (typeof Meteor.user().patient === "undefined") {
                     this.next();
                 } else {
-                    Router.go("/patient");
-                }
-            }
+                    if (Meteor.user().patient.doctorID === this.params._id) {
+                        this.render("defaultToolbar", {to: 'toolbar'});
 
-        } else {
-            this.render("defaultToolbar", {to: 'toolbar'});
-            this.render("patientNavigation", {to: "navigation"});
-            this.render("patientMyDoctorLayout");
+                        this.next();
+                    } else {
+                        Router.go("/patient");
+                    }
+                }
+
+            } else {
+                this.render("pinkToolbar", {to: 'toolbar'});
+                this.render("doctorNavigation", {to: "navigation"});
+                this.render("doctorPatientProfileLayout");
+            }
         }
     }
 });

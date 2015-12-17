@@ -8,17 +8,17 @@
                         <div class="cards-profile-image-header">
                             <img src="/img/back1.png" class="cards-profile-image-header-background" alt="" />
                             <div class="middle-center">
-                                <img src="/img/profile.png" class="cards-profile-content-account" alt="" />
+                                <img src="{{loginUser.requestDoctor.profile.image}}" class="cards-profile-content-account" alt="" />
                                 <a href="javascript:" class="secondary raised-button ripple center"><i class="mdi mdi-plus"></i>Set session</a>
                             </div>
 
                         </div>
                         <div class="cards-profile-content">
-                            <div class="font-subhead">Dr. Lili Madiha <i class="mdi mdi-checkbox-marked-circle account-verify"></i></div>
+                            <div class="font-subhead">{{loginUser.requestDoctor.profile.name}} <span class="font-medium">({{loginUser.requestDoctor.doctor.docpin}})</span><i class="mdi mdi-checkbox-marked-circle account-verify"></i> </div>
                             <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Doctor Account</div>
-                            <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Prince Court Medical Centre</div>
+                            <!-- <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Prince Court Medical Centre</div>
                             <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Kuala Lumpur, Malaysia</div>
-                            <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Department of Orthopedic</div>
+                            <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Department of Orthopedic</div> -->
                         </div>
                     </div>
                     <div class="cards">

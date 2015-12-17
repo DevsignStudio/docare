@@ -208,4 +208,31 @@
 			opacity: 0.4;
 		}
 	}
+
+	@include breakpoint("xlg") {
+		visibility: hidden !important;
+
+		.side-navigation-inner {
+			visibility: visible !important;
+			@include transform(translateX(0));
+			&:before {
+			    content: "";
+
+			    position: absolute;
+			    left: 0px;
+			    top: 0px;
+			    right: 0px;
+			    bottom: 0px;
+
+			    @include box-shadow($z4-shadow);
+
+			    /* Disable click events */
+			    pointer-events: none;
+			}
+		}
+
+		.side-overlay {
+			visibility: hidden !important;
+		}
+	}
 }

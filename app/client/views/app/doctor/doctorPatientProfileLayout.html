@@ -9,10 +9,10 @@
                             <img src="/img/back1.png" class="cards-profile-image-header-background" alt="" />
                         </div>
                         <div class="cards-profile-content">
-                            <img src="/img/profile.png" class="cards-profile-content-account" alt="" />
-                            <div class="font-subhead no-margin">Nizul Zaim</div>
+                            <img src="{{profile.image}}" class="cards-profile-content-account" alt="" />
+                            <div class="font-subhead no-margin">{{profile.name}}</div>
                             <div class="font-body no-margin color-grey-700">Patient Account</div>
-                            <div class="font-body no-margin color-grey-700">+60 17304 7311</div>
+                            <div class="font-body no-margin color-grey-700">{{username}}</div>
                         </div>
                     </div>
                     <div class="" style="margin-bottom: 8px;">
@@ -25,15 +25,15 @@
                             <div class="font-title no-margin font-grey-900">
                                 Today so Far
                             </div>
-                            <div class="row no-margin">
+                            <div class="row no-margin" id="weight" data-dialog="#indexDialog">
                                 <div class="col-xs-1" style="padding: 0;">
                                     <a href="javscript:" class="icon-toggle ripple">
                                         <i class="mdi mdi-weight-kilogram"></i>
                                     </a>
                                 </div>
                                 <div class="col-xs">
-                                    <div style="padding: 12px 0;">
-                                        <div class="font-body no-margin">Weight (Kg) <span class="pull-right font-subhead no-margin font-light">60kg</span></div>
+                                    <div style="padding: 12px 0;" >
+                                        <div class="font-body no-margin">Weight (Kg) <span class="pull-right font-subhead no-margin font-light">{{getPatientLatestData "weight"}}kg</span></div>
                                         <div class="progress-bar accent determinate" data-current="0"></div>
                                     </div>
                                 </div>
@@ -46,12 +46,12 @@
                                 </div>
                                 <div class="col-xs">
                                     <div style="padding: 12px 0;">
-                                        <div class="font-body no-margin">Height (cm) <span class="pull-right font-subhead no-margin font-light">163cm</span></div>
+                                        <div class="font-body no-margin">Height (cm) <span class="pull-right font-subhead no-margin font-light">{{getPatientLatestData "height"}}cm</span></div>
                                         <div class="progress-bar accent determinate" data-current="0"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row no-margin">
+                            <!-- <div class="row no-margin">
                                 <div class="col-xs-1" style="padding: 0;">
                                     <a href="javscript:" class="icon-toggle ripple">
                                         <i class="mdi mdi-heart "></i>
@@ -90,7 +90,7 @@
                                         <div class="progress-bar accent determinate" data-current="100" data-goal="1000"></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

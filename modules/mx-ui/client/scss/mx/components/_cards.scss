@@ -6,6 +6,7 @@
     position: relative;
     overflow: hidden;
     @include transform(translateZ(0));
+    @include transition(transform 0.4s $easeInOutExpo);
     margin-bottom: 16px;
     .cards-image {
         position: relative;

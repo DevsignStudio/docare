@@ -49,7 +49,17 @@
                             <img src="/img/back1.png" class="cards-profile-image-header-background" alt="" />
                             <div class="middle-center">
                                 <img src="/img/profile.png" class="cards-profile-content-account" alt="" />
-                                <a href="javascript:" id="request" class="secondary raised-button ripple center"><i class="mdi mdi-close"></i> Request Add</a>
+                                <a href="javascript:" id="request" class="secondary raised-button ripple center">
+                                    {{#if isRequested }}
+                                        {{#if isRejected }}
+                                            <i class="mdi mdi-replay"></i> Re-Request
+                                        {{else}}
+                                            <i class="mdi mdi-close"></i> Cancel Add
+                                        {{/if}}
+                                    {{else}}
+                                        <i class="mdi mdi-plus"></i> Request Add
+                                    {{/if}}
+                                </a>
                             </div>
                         </div>
                         <div class="cards-profile-content">

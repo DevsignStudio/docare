@@ -14,30 +14,17 @@
 
                         </div>
                         <div class="cards-profile-content">
-                            <div class="font-subhead">Dr. Lili Madiha <i class="mdi mdi-checkbox-marked-circle account-verify"></i></div>
+                            <div class="font-subhead">{{loginUser.profile.name}} <span class="font-medium">({{loginUser.doctor.docpin}})</span><i class="mdi mdi-checkbox-marked-circle account-verify"></i></div>
                             <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Doctor Account</div>
-                            <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Prince Court Medical Centre</div>
+                            <!-- <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Prince Court Medical Centre</div>
                             <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Kuala Lumpur, Malaysia</div>
-                            <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Department of Orthopedic</div>
+                            <div class="font-body no-margin color-grey-700" style="line-height: 16px;">Department of Orthopedic</div> -->
                         </div>
                     </div>
-                    <div class="cards">
-                        <div class="cards-text">
-                            <div class="font-subhead color-grey-900">
-                                Patient Session Request
-                            </div>
+                    {{#each loginUser.getMyAppoinments}}
+                        {{> doctorMyProfileCards}}
+                    {{/each}}
 
-                            <div class="font-body color-grey-800">
-                                Your patient request to schedule appointment with you. Your patient details :
-                            </div>
-                            <div class="font-body color-grey-600 no-margin">Name : Nizul Zaim Anuar</div>
-                            <div class="font-body color-grey-600 no-margin">Phone Number : +60 12925 2858</div>
-                        </div>
-                        <div class="cards-action">
-                            <a href="#" class="flat-button ripple">Ignore</a>
-                            <a href="#" class="flat-button primary ripple">Schedule</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -45,4 +32,27 @@
     <a href="#" class="fab ripple secondary fixed">
         <i class="mdi mdi-message-text"></i>
     </a>
+</template>
+
+<template name="doctorMyProfileCards">
+    <div class="cards" style="display:none;">
+        <div class="cards-text">
+            <div class="font-subhead color-grey-900">
+                Patient Session Request
+            </div>
+
+            <div class="font-body color-grey-800">
+                Your patient request to schedule appointment with you. Your patient details :
+            </div>
+            <div class="font-body color-grey-600 no-margin"><span class="font-medium color-grey-800">Name :</span> {{patient.profile.name}}</div>
+            <div class="font-body color-grey-600 no-margin"><span class="font-medium color-grey-800">Phone Number :</span> {{patient.username}}</div>
+            <div class="font-body color-grey-600 no-margin"><span class="font-medium color-grey-800">Date :</span> {{getRequestAtDate}}</div>
+            <div class="font-body color-grey-600 no-margin"><span class="font-medium color-grey-800">Time :</span> {{getRequestAtTime}}</div>
+        </div>
+        <div class="cards-action">
+            <a href="#" class="flat-button primary ripple">Schedule</a>
+            <a href="javscript:" id="reject" class="icon-toggle ripple"><i class="mdi mdi-close"></i></a>
+            <a href="javscript:" id="accept" class="icon-toggle ripple"><i class="mdi mdi-check"></i></a>
+        </div>
+    </div>
 </template>

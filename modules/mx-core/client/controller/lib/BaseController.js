@@ -3,6 +3,7 @@ BaseController = RouteController.extend({
     notFoundTemplate:"404",
     yieldTemplates: {
         'defaultToolbar': {to: 'toolbar'},
+        'defaultStyle': {to: 'style'},
         'defaultNavigation': {to: "navigation"}
     }
 });

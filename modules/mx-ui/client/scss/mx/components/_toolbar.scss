@@ -18,6 +18,13 @@
 	z-index: 800;
 	@include transform(translateZ(0));
 
+	&.toolbar-main {
+		@include breakpoint("xlg") {
+			width: calc(100% - 320px);
+	        margin-left: 320px;
+		}
+	}
+	
 	.toolbar-contain {
 		height: 56px;
 		@include transform(translateZ(0));
@@ -27,6 +34,8 @@
 			padding: 16px;
 		}
 	}
+
+
 
 	.toolbar-title {
 		@include ty-title;

@@ -4,12 +4,12 @@
         <div style="max-width: 1312px; margin: 0 auto;">
             <div class="row center-xs">
                 <div class="col-xs-fluid-24">
-                    <form id="firstData" action="/patient/set-session" method="post">
+                    <form id="setSession" action="/patient/set-session" method="post">
                         <div class="cards" style="margin-top: 8px; margin-bottom: 56px; overflow: visible">
                             <div class="cards-text">
                                 <div class="font-body color-grey-700">Please request to set session/appoinment date and time with your doctor. The doctor will accept, reject or reschedule your appoinment after you confirm it here.</div>
                                 <input type="text" name="sessionDate" class="input-datepicker" placeholder="Session Date" data-floating-field>
-                                <select name="" id="">
+                                <select name="sessionTime" id="">
                                     <option value="07" selected="">07:00 AM</option>
                                     <option value="08">08:00 AM</option>
                                     <option value="09">09:00 AM</option>

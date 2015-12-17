@@ -37,7 +37,6 @@ $.fn.mxSelect = function(args) {
 
     $parent.on("click", function(e) {
         if( e.target == this || $(e.target).is($defaultText) || $(e.target).is($tri)) {
-            console.log(e.target);
             $(this).addClass("active");
         } else {
             return;
@@ -50,9 +49,12 @@ $.fn.mxSelect = function(args) {
             $selected.removeClass("selected");
             $(this).addClass("selected");
             $parent.removeClass("active");
-
+            $opt = $allOption.eq($(this).index());
+            $opt.prop('selected', true);
+            
             $selected = $(this);
             $defaultText.html($selected.html());
+
         });
     });
 

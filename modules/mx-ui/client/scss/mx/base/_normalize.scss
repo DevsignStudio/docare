@@ -95,6 +95,11 @@ form {
 .page-container {
 	width: 100%;
 	overflow: hidden;
+
+    @include breakpoint("xlg") {
+        width: calc(100% - 320px);
+        margin-left: 320px;
+    }
 }
 
 

@@ -2,6 +2,50 @@ Meteor.publish("users", function(){
     return Meteor.users.find();
 });
 
+Meteor.publish("requests", function(){
+    return Requests.find({
+        $or: [
+            {patientId: this.userId},
+            {
+                doctorId: this.userId,
+                rejected: {$ne: true},
+                accepted: {$ne: true},
+            },
+        ]
+    });
+});
+
+Meteor.publish("patientsdata", function(){
+    user = Meteor.users.findOne({_id: this.userId});
+    if (user.profile.accountType === 1) {
+        return PatientData.find({patientId: user._id});
+    } else {
+        myPatients = Meteor.users.find({"patient.doctorId": user._id});
+        patientsId = [];
+        myPatients.forEach(function(u){
+            patientsId.push({
+                patientId: u._id,
+            });
+        });
+
+        return PatientData.find({
+            $or: patientsId
+        });
+    }
+});
+
+Meteor.publish("appointments", function(){
+    return Appointment.find({
+        $or: [
+            {patientId: this.userId},
+            {
+                doctorId: this.userId,
+                accepted: {$ne: true},
+                rejected: {$ne: true},
+            },
+        ]
+    });
+});
 // twilio = Twilio("ACdb67f64ff831fff07a60c72eb1697246", "4606bec5540c03eb81b54741d2e0cd06");
 // twilio.sendSms({
 //   to:'+60129252858', // Any number Twilio can deliver to
